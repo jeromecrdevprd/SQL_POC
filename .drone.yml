@@ -4,11 +4,11 @@ name: default
    
 steps:    
   - name: clean
-    image: mcr.microsoft.com/dotnet/sdk:latest
+    image: mcr.microsoft.com/dotnet/framework/sdk:latest
     commands:
-      - dotnet clean
+      - msbuild Database.sln -target:Clean
       
   - name: build
-    image: mcr.microsoft.com/dotnet/core/sdk:latest
+    image: mcr.microsoft.com/dotnet/framework/sdk:latest
     commands:
-      - dotnet build
+      - msbuild Database.sln -t:rebuild

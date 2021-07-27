@@ -6,9 +6,9 @@ steps:
   - name: clean
     image: mcr.microsoft.com/dotnet/sdk:latest
     commands:
-      - dotnet clean ./Database.sln
+      - dotnet clean Database.sln
       
   - name: build
     image: mcr.microsoft.com/dotnet/core/sdk:latest
     commands:
-      - dotnet build ./Database.sln
+      - dotnet build Database.sln

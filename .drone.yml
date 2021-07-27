@@ -6,9 +6,9 @@ steps:
   - name: clean
     image: mcr.microsoft.com/dotnet/framework/sdk:latest
     commands:
-      - msbuild Database.sln -target:Clean
+      - msbuild Database.sln
       
   - name: build
     image: mcr.microsoft.com/dotnet/framework/sdk:latest
     commands:
-      - msbuild Database.sln -t:rebuild
+      - msbuild Database.sln

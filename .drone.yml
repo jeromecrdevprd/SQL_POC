@@ -1,6 +1,6 @@
 kind: pipeline
 type: docker
-name: Build
+name: IPM deploy
    
 steps:    
   - name: clean
@@ -14,7 +14,7 @@ steps:
       - dotnet build SampleDB/SampleDB.sln
 
   - name: Deploy to Azure SQL Database 
-    image: jeromecrdevprd/SQL_POC
+    image: jeromecrdevprd/SQL_POC/SQLPackage
     environment:
       SERVER_NAME:
         from_secret: SERVER_NAME

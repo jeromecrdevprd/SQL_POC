@@ -1,6 +1,6 @@
 kind: pipeline
 type: docker
-name: default
+name: Build
    
 steps:    
   - name: clean
@@ -12,3 +12,34 @@ steps:
     image: mcr.microsoft.com/dotnet/core/sdk:latest
     commands:
       - dotnet build SampleDB/SampleDB.sln
+      
+      
+---
+kind: pipeline
+type: docker
+name: SQL Deploy
+
+steps:
+  - name: Deploy to Azure SQL Database 
+    image: jeromecrdevprd/SQL_POC
+    environment:
+      SERVER_NAME:
+        from_secret: SERVER_NAME
+      DB_NAME:
+        from_secret: DB_NAME
+      USERNAME:
+        from_secret: USERNAME
+      PASSWORD:
+        from_secret: PASSWORD
+    commands:
+      - sqlpackage /a:Publish /p:VerifyDeployment=True /p:CommandTimeout=0 /p:DatabaseServiceObjective=P2 /p:AllowIncompatiblePlatform=True /tsn:tcp:$SERVER_NAME /tdn:$DB_NAME /tu:$USERNAME /tp:$PASSWORD /sf:/drone/src/SampleDB/SampleDB/bin/Debug/SampleDB.dacpac
+
+trigger:
+  branch:
+    include:
+      - test
+  event:
+    include:
+      - push
+      - pull_request
+      

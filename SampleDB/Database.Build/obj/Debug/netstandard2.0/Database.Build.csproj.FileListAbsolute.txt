@@ -1,0 +1,6 @@
+D:\Repos\SQL_POC\SampleDB\Database.Build\bin\Debug\netstandard2.0\Database.Build.deps.json
+D:\Repos\SQL_POC\SampleDB\Database.Build\bin\Debug\netstandard2.0\Database.Build.dacpac
+D:\Repos\SQL_POC\SampleDB\Database.Build\obj\Debug\netstandard2.0\Database.Build.csprojAssemblyReference.cache
+D:\Repos\SQL_POC\SampleDB\Database.Build\obj\Debug\netstandard2.0\Database.Build.AssemblyInfoInputs.cache
+D:\Repos\SQL_POC\SampleDB\Database.Build\obj\Debug\netstandard2.0\Database.Build.AssemblyInfo.cs
+D:\Repos\SQL_POC\SampleDB\Database.Build\obj\Debug\netstandard2.0\Database.Build.dacpac

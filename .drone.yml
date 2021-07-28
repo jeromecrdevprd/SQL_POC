@@ -1,24 +1,14 @@
 kind: pipeline
 type: docker
-name: Project Build
-
+name: default
+   
 steps:    
   - name: clean
-    image: mcr.microsoft.com/dotnet/framework/aspnet:4.5
+    image: mcr.microsoft.com/dotnet/sdk:latest
     commands:
-      - dotnet clean Database.sln
-
-  - name: build
-    image: mcr.microsoft.com/dotnet/framework/aspnet:4.5
-    commands:
-      - dotnet build Database.sln -c Debug
-     
+      - dotnet clean SampleDB/SampleDB.sln
       
-trigger:
-  branch:
-    include:
-      - develop
-  event:
-    include:
-      - pull_request
-      - push
+  - name: build
+    image: mcr.microsoft.com/dotnet/core/sdk:latest
+    commands:
+      - dotnet build SampleDB/SampleDB.sln

@@ -1,0 +1,2 @@
+﻿CREATE USER [ipm_testuser] FOR EXTERNAL PROVIDER;
+

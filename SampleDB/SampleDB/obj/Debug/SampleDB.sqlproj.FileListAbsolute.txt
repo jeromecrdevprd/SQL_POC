@@ -1,0 +1,6 @@
+C:\Users\markdodevprd\source\repos\SampleDB\SampleDB\bin\Debug\SampleDB.dacpac
+C:\Users\markdodevprd\source\repos\SampleDB\SampleDB\bin\Debug\SampleDB.dll
+C:\Users\markdodevprd\source\repos\SampleDB\SampleDB\bin\Debug\SampleDB.pdb
+C:\Users\markdodevprd\source\repos\SampleDB\SampleDB\obj\Debug\SampleDB.sqlprojAssemblyReference.cache
+C:\Users\markdodevprd\source\repos\SampleDB\SampleDB\obj\Debug\SampleDB.dll
+C:\Users\markdodevprd\source\repos\SampleDB\SampleDB\obj\Debug\SampleDB.pdb

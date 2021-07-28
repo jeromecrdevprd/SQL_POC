@@ -50,7 +50,7 @@ steps:
       PASSWORD:
         from_secret: PASSWORD
     commands:
-      - sqlpackage /a:Publish /p:VerifyDeployment=True /p:CommandTimeout=0 /p:DatabaseServiceObjective=P2 /p:AllowIncompatiblePlatform=True /tsn:tcp:$SERVER_NAME /tdn:$DB_NAME /tu:$USERNAME /tp:$PASSWORD /sf:/drone/src/SampleDB/SampleDB/bin/Debug/SampleDB.dacpac
+      - sqlpackage /a:Publish /p:VerifyDeployment=True /p:CommandTimeout=0 /p:DatabaseServiceObjective=P2 /p:AllowIncompatiblePlatform=True /tsn:tcp:$SERVER_NAME /tdn:$DB_NAME /tu:$USERNAME /tp:$PASSWORD /sf:/drone/src/SampleDB/Database.Build/bin/Debug/netstandard2.0/Database.Build.dacpac
 
 trigger:
   branch:

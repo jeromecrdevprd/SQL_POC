@@ -4,12 +4,12 @@ name: Project Build
 
 steps:    
   - name: clean
-    image: mcr.microsoft.com/dotnet/sdk:latest
+    image: mcr.microsoft.com/dotnet/framework/aspnet:4.5
     commands:
       - dotnet clean Database.sln
 
   - name: build
-    image: mcr.microsoft.com/dotnet/core/sdk:latest
+    image: mcr.microsoft.com/dotnet/framework/aspnet:4.5
     commands:
       - dotnet build Database.sln -c Debug
      

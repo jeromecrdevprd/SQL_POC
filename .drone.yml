@@ -1,6 +1,6 @@
 kind: pipeline
 type: docker
-name: IPM deploy
+name: IPM build
    
 steps:    
   - name: clean
@@ -13,6 +13,31 @@ steps:
     commands:
       - dotnet build SampleDB/SampleDB.sln
 
+trigger:
+  branch:
+    include:
+      - test
+  event:
+    include:
+      - push
+      - pull_request
+      
+---
+kind: pipeline
+type: docker
+name: IPM deploy
+   
+steps:    
+  - name: clean
+    image: mcr.microsoft.com/dotnet/sdk:latest
+    commands:
+      - dotnet clean SampleDB/SampleDB.sln
+      
+  - name: build
+    image: mcr.microsoft.com/dotnet/core/sdk:latest
+    commands:
+      - dotnet build SampleDB/SampleDB.sln
+      
   - name: Deploy to Azure SQL Database 
     image: jeromecrdevprd/SQL_POC/SQLPackage
     environment:

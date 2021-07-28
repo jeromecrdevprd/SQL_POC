@@ -11,7 +11,7 @@ steps:
   - name: build
     image: mcr.microsoft.com/dotnet/core/sdk:latest
     commands:
-      - dotnet build Database.sln
+      - dotnet build Database.sln -c Debug
      
       
 trigger:

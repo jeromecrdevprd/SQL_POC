@@ -12,14 +12,7 @@ steps:
     image: mcr.microsoft.com/dotnet/core/sdk:latest
     commands:
       - dotnet build SampleDB/SampleDB.sln
-      
-      
----
-kind: pipeline
-type: docker
-name: SQL Deploy
 
-steps:
   - name: Deploy to Azure SQL Database 
     image: jeromecrdevprd/SQL_POC
     environment:

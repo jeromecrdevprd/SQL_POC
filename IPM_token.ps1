@@ -11,5 +11,4 @@ Write-debug “Access token type is $($tokenResponse.token_type), expires $($tok
 $Token = $tokenResponse.access_token
 }
 
-write-host "##vso[task.setvariable variable=SQLAccessToken]$Token"
-write-host "SQLAccessToken ~> @SQLACessToken"
+"##vso[task.setvariable variable=SQLAccessToken]$Token"

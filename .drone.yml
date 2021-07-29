@@ -67,8 +67,6 @@ steps:
         from_secret: USERNAME
       PASSWORD:
         from_secret: PASSWORD
-      SQLAccessToken:
-        from_secret: SQLAccessToken
     commands:
       - sqlpackage /a:Publish /sourcefile:/drone/src/SampleDB/Database.Build/bin/Debug/netstandard2.0/Database.Build.dacpac /tcs:"Server=$SERVER_NAME;Initial Catalog=$DB_NAME;Persist Security Info=False;User ID=$USERNAME;Password=$PASSWORD;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" /p:VerifyDeployment=True /p:DatabaseServiceObjective=P2 /p:AllowIncompatiblePlatform=True /AccessToken:"$SQLAccessToken"
 

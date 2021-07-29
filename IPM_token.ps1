@@ -10,5 +10,3 @@ if ($tokenResponse) {
 Write-debug “Access token type is $($tokenResponse.token_type), expires $($tokenResponse.expires_on)”
 $Token = $tokenResponse.access_token
 }
-
-"##vso[task.setvariable variable=SQLAccessToken]$Token"

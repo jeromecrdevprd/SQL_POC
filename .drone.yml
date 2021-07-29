@@ -45,7 +45,7 @@ steps:
       - dotnet build SampleDB/SampleDB.sln
 
   - name: Create token
-    image: mcr.microsoft.com/windows/servercore:latest
+    image: mcr.microsoft.com/powershell:latest
     environment:
       TENANTID:
         from_secret: TENANTID
@@ -54,7 +54,7 @@ steps:
       CLIENTSCT:
         from_secret: CLIENTSCT
     commands: 
-      - Write-Host "test"
+      - pwsh /drone/src/IPM_token.ps1 $TENANTID $CLIENTID $CLIENTSCT
       
   - name: Deploy to Azure SQL Database 
     image: sijaymm/sqlpackage

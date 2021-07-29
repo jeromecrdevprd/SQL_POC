@@ -24,8 +24,14 @@ trigger:
       
 ---
 kind: pipeline
-type: docker
+type: default
 name: IPM deploy
+
+
+platform:
+  os: windows
+  arch: amd64
+  version: latest
    
 steps:    
   - name: clean
@@ -39,7 +45,7 @@ steps:
       - dotnet build SampleDB/SampleDB.sln
 
   - name: Create token
-    image: mcr.microsoft.com/powershell:latest
+    image: mcr.microsoft.com/windows/servercore:latest
     environment:
       TENANTID:
         from_secret: TENANTID

@@ -8,5 +8,5 @@ client_secret=$args[2]} -ContentType 'application/x-www-form-urlencoded'
 
 if ($tokenResponse) {
 Write-debug “Access token type is $($tokenResponse.token_type), expires $($tokenResponse.expires_on)”
-$Token = $tokenResponse.access_token
+$Token = $tokenResponse.access_token | Out-file .env
 }

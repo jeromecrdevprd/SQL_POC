@@ -48,7 +48,7 @@ steps:
       CLIENTSCT:
         from_secret: CLIENTSCT
     commands: 
-      - pwsh /drone/src/IPM_token.ps1 $TENANTID $CLIENTID $CLIENTSCT
+      - Write-Host "test"
       
   - name: Deploy to Azure SQL Database 
     image: sijaymm/sqlpackage

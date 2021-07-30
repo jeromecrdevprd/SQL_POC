@@ -52,6 +52,7 @@ steps:
       - ls /drone/src/token.txt
       - cat /drone/src/token.txt
       - echo "$value"
+      - $value
       
   - name: Deploy to Azure SQL Database 
     pull: if-not-exists

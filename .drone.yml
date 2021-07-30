@@ -48,7 +48,7 @@ steps:
       CLIENTSCT:
         from_secret: CLIENTSCT
     commands: 
-      - pwsh /drone/src/IPM_token.ps1 $TENANTID $CLIENTID $CLIENTSCT | Get-Content token.txt
+      - pwsh /drone/src/IPM_token.ps1 $TENANTID $CLIENTID $CLIENTSCT | Get-Content "/drone/src/token.txt"
       
   - name: Deploy to Azure SQL Database 
     pull: if-not-exists

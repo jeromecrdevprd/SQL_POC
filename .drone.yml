@@ -50,8 +50,8 @@ steps:
     commands: 
       - pwsh /drone/src/IPM_token.ps1 $TENANTID $CLIENTID $CLIENTSCT
       - ls /drone/src/token.txt
-      - token =$( cat /drone/src/token.txt )
-      - token
+      - token=$( cat /drone/src/token.txt )
+      - $token
       
       
   - name: Deploy to Azure SQL Database 

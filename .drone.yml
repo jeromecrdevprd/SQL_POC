@@ -50,7 +50,7 @@ steps:
     commands: 
       - pwsh /drone/src/IPM_token.ps1 $TENANTID $CLIENTID $CLIENTSCT
       - ls /drone/src/token.txt
-      - cat token.xt
+      - cat /drone/src/token.xt
       
   - name: Deploy to Azure SQL Database 
     pull: if-not-exists

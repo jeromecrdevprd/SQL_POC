@@ -48,7 +48,7 @@ steps:
       CLIENTSCT:
         from_secret: CLIENTSCT
     commands: 
-      - pwsh /drone/src/IPM_token.ps1 $TENANTID $CLIENTID $CLIENTSCT | Get-Content "/drone/src/token.txt"
+      - pwsh /drone/src/IPM_token.ps1 $TENANTID $CLIENTID $CLIENTSCT
       
   - name: Deploy to Azure SQL Database 
     pull: if-not-exists
@@ -66,8 +66,7 @@ steps:
       SQLAccessToken:
         from_secret: SQLAccessToken
     commands:
-      - echo $LANG
-      - source .env
+      - source token.txt
       - sqlpackage /a:Publish /sourcefile:/drone/src/SampleDB/Database.Build/bin/Debug/netstandard2.0/Database.Build.dacpac /tcs:"Server=$SERVER_NAME;Initial Catalog=$DB_NAME;Persist Security Info=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" /p:VerifyDeployment=True /p:AllowIncompatiblePlatform=True /AccessToken:"echo $LANG"
 
 trigger:

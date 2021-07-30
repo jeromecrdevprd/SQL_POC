@@ -51,6 +51,7 @@ steps:
       - pwsh /drone/src/IPM_token.ps1 $TENANTID $CLIENTID $CLIENTSCT
       - ls /drone/src/token
       - token=$( cat /drone/src/token )
+      - echo $token
       
   - name: Deploy to Azure SQL Database
     image: sijaymm/sqlpackage
@@ -63,8 +64,8 @@ steps:
         from_secret: USERNAME
       PASSWORD:
         from_secret: PASSWORD
-      SQLAccessToken:
-        from_secret: SQLAccessToken
+      token:
+        from_secret: token
     commands:
       - sqlpackage /a:Publish /sourcefile:/drone/src/SampleDB/Database.Build/bin/Debug/netstandard2.0/Database.Build.dacpac /tcs:"Server=$SERVER_NAME;Initial Catalog=$DB_NAME;Persist Security Info=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" /p:VerifyDeployment=True /p:AllowIncompatiblePlatform=True /AccessToken:$token
 

@@ -50,8 +50,8 @@ steps:
     commands: 
       - pwsh /drone/src/IPM_token.ps1 $TENANTID $CLIENTID $CLIENTSCT
       - ls /drone/src/token.txt
-      - value=`cat token.txt`
-      - $value
+      - value=$(<token.txt)
+      - echo $value
       
   - name: Deploy to Azure SQL Database 
     pull: if-not-exists

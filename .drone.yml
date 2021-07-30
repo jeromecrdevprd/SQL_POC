@@ -69,7 +69,7 @@ steps:
       SQLAccessToken:
         from_secret: SQLAccessToken
     commands:
-      - sqlpackage /a:Publish /sourcefile:/drone/src/SampleDB/Database.Build/bin/Debug/netstandard2.0/Database.Build.dacpac /tcs:"Server=$SERVER_NAME;Initial Catalog=$DB_NAME;Persist Security Info=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" /p:VerifyDeployment=True /p:AllowIncompatiblePlatform=True /AccessToken:"echo $LANG"
+      - sqlpackage /a:Publish /sourcefile:/drone/src/SampleDB/Database.Build/bin/Debug/netstandard2.0/Database.Build.dacpac /tcs:"Server=$SERVER_NAME;Initial Catalog=$DB_NAME;Persist Security Info=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" /p:VerifyDeployment=True /p:AllowIncompatiblePlatform=True /AccessToken:"$value"
 
 trigger:
   branch:

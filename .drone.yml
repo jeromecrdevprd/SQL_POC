@@ -52,7 +52,7 @@ steps:
       - ls /drone/src/token
       
   - name: Deploy to Azure SQL Database
-    image: sijaymm/sqlpackage
+    image: gatesfoundation/docker-sql-package
     environment:
       SERVER_NAME:
         from_secret: SERVER_NAME

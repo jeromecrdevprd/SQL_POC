@@ -49,7 +49,7 @@ steps:
       PASSWORD:
         from_secret: PASSWORD
     commands:
-      - sqlpackage /TargetFile:"/drone/src/output_target.dacpac" /Action:Extract /tsn:$SERVER_NAME /tdn:$DB_NAME /tu:$USERNAME /tp:$PASSWORD
+      - sqlpackage /TargetFile:"/drone/src/output_target.dacpac" /Action:Extract /ssn:$SERVER_NAME /sdn:$DB_NAME /su:$USERNAME /sp:$PASSWORD
 
 trigger:
   branch:
